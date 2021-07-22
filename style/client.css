@@ -1093,7 +1093,7 @@ p.or:after {
 	max-width: 270px;
 	border-radius: 20px;
 
-	background: rgba(0,0,0,.2);
+	background: rgba(0, 0, 0, 0.336);
 	color: white;
 	text-shadow: 0 1px 0 black;
 	text-align: center;
