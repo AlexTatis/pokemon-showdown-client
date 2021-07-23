@@ -1,11 +1,17 @@
-Pokémon Showdown Client
+Pokémon Showdown Modded Client - Pokewarp
 ========================================================================
 
-Navigation: [Website][1] | [Server repository][2] | **Client repository** | [Dex repository][3]
+Navigation: [Website][1] | [Server repository][2] | **Client repository** | [Dex repository][3] | [Pokewarp][4]
 
   [1]: http://pokemonshowdown.com/
   [2]: https://github.com/Zarel/Pokemon-Showdown
   [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
+  [4]: https://github.com/AlexTatis/pokewarp
+
+How does it differ from vanilla?
+------------------------------------------------------------------------
+
+Not by much. It just adds a custom GUI for my multiplayer platform, Pokewarp!
 
 Introduction
 ------------------------------------------------------------------------

@@ -15,7 +15,7 @@
 		initialize: function () {
 			// April Fool's 2016 - Digimon Showdown
 			// this.$el.html('<img class="logo" src="' + Dex.resourcePrefix + 'sprites/afd/digimonshowdown.png" alt="Digimon Showdown! (beta)" width="146" height="44" /><div class="maintabbarbottom"></div><div class="tabbar maintabbar"><div class="inner"></div></div><div class="userbar"></div>');
-			this.$el.html('<img class="logo" src="' + Dex.resourcePrefix + 'pokemonshowdownbeta.png" srcset="' + Dex.resourcePrefix + 'pokemonshowdownbeta@2x.png 2x" alt="Pok&eacute;mon Showdown! (beta)" width="146" height="44" /><div class="maintabbarbottom"></div><div class="tabbar maintabbar"><div class="inner"></div></div><div class="userbar"></div>');
+			this.$el.html('</div><div class="tabbar maintabbar"><div class="inner"></div></div></div><div><div class="userbar"></div>');
 			this.$tabbar = this.$('.maintabbar .inner');
 			// this.$sidetabbar = this.$('.sidetabbar');
 			this.$userbar = this.$('.userbar');
@@ -67,63 +67,7 @@
 
 		// tabbar
 		renderRoomTab: function (room, id) {
-			if (!room && id !== 'rooms') return '';
-			if (!id) id = room.id;
-			var buf = '<li><a class="roomtab button' + (app.curRoom === room || app.curSideRoom === room ? ' cur' : '') + (room && room.notificationClass || '') + (id === '' || id === 'rooms' ? '' : ' closable') + '" href="' + app.root + id + '"';
-			if (room && room.notifications) {
-				var title = '';
-				for (var tag in room.notifications) {
-					if (room.notifications[tag].title) title += room.notifications[tag].title + '\n';
-					if (room.notifications[tag].body) title += room.notifications[tag].body + '\n';
-				}
-				if (title) buf += ' title="' + BattleLog.escapeHTML(title) + '"';
-			}
-			switch (room ? room.type : id) {
-			case '':
-			case 'mainmenu':
-				return buf + '><i class="fa fa-home"></i> <span>Home</span></a></li>';
-			case 'teambuilder':
-				return buf + '><i class="fa fa-pencil-square-o"></i> <span>Teambuilder</span></a><button class="closebutton" name="closeRoom" value="' + 'teambuilder" aria-label="Close"><i class="fa fa-times-circle"></i></button></li>';
-			case 'ladder':
-				return buf + '><i class="fa fa-list-ol"></i> <span>Ladder</span></a><button class="closebutton" name="closeRoom" value="' + 'ladder" aria-label="Close"><i class="fa fa-times-circle"></i></button></li>';
-			case 'battles':
-				return buf + '><i class="fa fa-caret-square-o-right"></i> <span>Battles</span></a><button class="closebutton" name="closeRoom" value="' + 'battles" aria-label="Close"><i class="fa fa-times-circle"></i></button></li>';
-			case 'rooms':
-				return buf + ' aria-label="Join chatroom"><i class="fa fa-plus" style="margin:7px auto -6px auto"></i> <span>&nbsp;</span></a></li>';
-			case 'battle':
-				var name = BattleLog.escapeHTML(room.title);
-				var offset = id.startsWith('game-') ? 5 : 7;
-				var idChunks = id.substr(offset).split('-');
-				var formatid;
-				if (idChunks.length <= 1) {
-					if (idChunks[0] === 'uploadedreplay') formatid = 'Uploaded Replay';
-				} else {
-					formatid = idChunks[0];
-				}
-				if (!name) {
-					var p1 = (room.battle && room.battle.p1 && room.battle.p1.name) || '';
-					var p2 = (room.battle && room.battle.p2 && room.battle.p2.name) || '';
-					if (p1 && p2) {
-						name = '' + BattleLog.escapeHTML(p1) + ' v. ' + BattleLog.escapeHTML(p2);
-					} else if (p1 || p2) {
-						name = '' + BattleLog.escapeHTML(p1) + BattleLog.escapeHTML(p2);
-					} else {
-						name = '(empty room)';
-					}
-				}
-				return buf + ' draggable="true"><i class="text">' + BattleLog.escapeFormat(formatid) + '</i><span>' + name + '</span></a><button class="closebutton" name="closeRoom" value="' + id + '" aria-label="Close"><i class="fa fa-times-circle"></i></a></li>';
-			case 'chat':
-				return buf + ' draggable="true"><i class="fa fa-comment-o"></i> <span>' + (BattleLog.escapeHTML(room.title) || (id === 'lobby' ? 'Lobby' : id)) + '</span></a><button class="closebutton" name="closeRoom" value="' + id + '" aria-label="Close"><i class="fa fa-times-circle"></i></a></li>';
-			case 'html':
-			default:
-				if (room.title && room.title.charAt(0) === '[') {
-					var closeBracketIndex = room.title.indexOf(']');
-					if (closeBracketIndex > 0) {
-						return buf + ' draggable="true"><i class="text">' + BattleLog.escapeFormat(room.title.slice(1, closeBracketIndex)) + '</i><span>' + BattleLog.escapeHTML(room.title.slice(closeBracketIndex + 1)) + '</span></a><button class="closebutton" name="closeRoom" value="' + id + '" aria-label="Close"><i class="fa fa-times-circle"></i></a></li>';
-					}
-				}
-				return buf + ' draggable="true"><i class="fa fa-file-text-o"></i> <span>' + (BattleLog.escapeHTML(room.title) || id) + '</span></a><button class="closebutton" name="closeRoom" value="' + id + '" aria-label="Close"><i class="fa fa-times-circle"></i></a></li>';
-			}
+		
 		},
 		updateTabbar: function () {
 			if ($(window).width() < 420) return this.updateTabbarMini();
@@ -179,16 +123,14 @@
 			var offset = $lastLi.offset();
 			var width = $lastLi.outerWidth();
 			// 166 here is the difference between the .maintabbar's right margin and the a.button's right margin.
-			var overflow = offset.left + width + 166 - $(window).width();
+			var overflow = 37;
 			if (app.curSideRoom && overflow > 0) {
 				margin -= overflow;
 				$lastUl.css('margin-left', margin + 'px');
 				offset = $lastLi.offset();
 				overflow = offset.left + width + 166 - $(window).width();
 			}
-			if (offset.top >= 37 || overflow > 0) {
-				this.$tabbar.append('<div class="overflow" aria-hidden="true"><button name="tablist" class="button" aria-label="More"><i class="fa fa-caret-down"></i></button></div>');
-			}
+			
 
 			if (app.rooms['']) app.rooms[''].updateRightMenu();
 		},
@@ -774,6 +716,7 @@
 			buf += '<button name="setBg" value="waterfall"' + (cur === 'waterfall' ? ' class="cur"' : '') + '><span class="bg" style="background-position:0 -' + (90 * 2) + 'px"></span>Waterfall</button>';
 			buf += '<button name="setBg" value="ocean"' + (cur === 'ocean' ? ' class="cur"' : '') + '><span class="bg" style="background-position:0 -' + (90 * 3) + 'px"></span>Ocean</button>';
 			buf += '<button name="setBg" value="shaymin"' + (cur === 'shaymin' ? ' class="cur"' : '') + '><span class="bg" style="background-position:0 -' + (90 * 4) + 'px"></span>Shaymin</button>';
+			buf += '<button name="setBg" value="xerneas"' + (cur === 'xerneas' ? ' class="cur"' : '') + '><span class="bg" style="background: url(../fx/modclient-bg-xerneas.png) no-repeat scroll 0px 0px; background-size: cover;"></span>Xerneas</button>';
 			buf += '<button name="setBg" value="solidblue"' + (cur === 'solidblue' ? ' class="cur"' : '') + '><span class="bg" style="background: #344b6c"></span>Solid blue</button>';
 
 			buf += '</div><div style="clear:left"></div>';
@@ -792,6 +735,9 @@
 		},
 		setBg: function (bgid) {
 			var bgUrl = (bgid === 'solidblue' ? '#344b6c' : Dex.resourcePrefix + 'fx/client-bg-' + bgid + '.jpg');
+			if (bgid == "xerneas") {
+				bgUrl = "fx/modclient-bg-xerneas.png"
+			}
 			Storage.bg.set(bgUrl, bgid);
 			this.$('.cur').removeClass('cur');
 			this.$('button[value="' + bgid + '"]').addClass('cur');

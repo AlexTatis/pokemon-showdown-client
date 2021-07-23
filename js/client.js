@@ -405,7 +405,8 @@ function toId() {
 			// if (document.location.hostname === 'play.pokemonshowdown.com') this.down = true;
 
 			this.addRoom('');
-			//this.topbar = new Topbar({el: $('#header')});
+			this.topbar = new Topbar({el: $('#modded-topbar')});
+			document.getElementsByClassName("maintabbar")[0].remove()
 			if (this.down) {
 				this.isDisconnected = true;
 			// } else if (location.origin === 'http://smogtours.psim.us') {
@@ -669,8 +670,12 @@ function toId() {
 			});
 
 			Storage.whenAppLoaded.load(this);
-
+			
 			this.initializeConnection();
+
+			
+
+			
 		},
 		/**
 		 * Start up the client, including loading teams and preferences,
@@ -1682,7 +1687,7 @@ function toId() {
 						this.curRoom.$el.removeClass('tiny-layout');
 					}
 				}
-				//this.topbar.updateTabbar();
+				this.topbar.updateTabbar();
 				return;
 			}
 
@@ -1708,7 +1713,7 @@ function toId() {
 						this.curSideRoom = null;
 					}
 					this.curRoom.show('full');
-					//this.topbar.updateTabbar();
+					this.topbar.updateTabbar();
 					return;
 				}
 			} else if (this.curRoom.id === '') {
@@ -1732,7 +1737,7 @@ function toId() {
 					this.curRoom.$el.removeClass('tiny-layout');
 				}
 				this.curRoom.show('full');
-				//this.topbar.updateTabbar();
+				this.topbar.updateTabbar();
 				return;
 			}
 			this.curSideRoom = this.sideRoom;
@@ -1743,7 +1748,7 @@ function toId() {
 					this.curRoom.show('left', leftMin);
 					this.curRoom.$el.addClass('tiny-layout');
 					this.curSideRoom.show('right', leftMin);
-					//this.topbar.updateTabbar();
+					this.topbar.updateTabbar();
 					return;
 				}
 				leftMin = (this.curRoom.minWidth || this.curRoom.bestWidth);
@@ -1780,7 +1785,7 @@ function toId() {
 			}
 			this.curRoom.show('left', leftWidth);
 			this.curSideRoom.show('right', leftWidth);
-			//this.topbar.updateTabbar();
+			this.topbar.updateTabbar();
 		},
 		updateSideRoom: function (id) {
 			if (id && this.rooms[id].isSideRoom) {
@@ -1820,7 +1825,7 @@ function toId() {
 			this.rooms[newid] = room;
 			delete this.rooms[id];
 			this.updateLayout();
-			//this.topbar.updateTabbar();
+			this.topbar.updateTabbar();
 			if (this.rooms[newid] === this.curRoom) {
 				this.updateTitle(this.rooms[newid]);
 			}
@@ -1856,7 +1861,7 @@ function toId() {
 				} else {
 					this.roomList.splice(index, 1);
 					this.roomList.splice(newIndex, 0, room);
-					//this.topbar.updateTabbar();
+					this.topbar.updateTabbar();
 				}
 				room.focusText();
 				if (room.type === 'chat') this.updateAutojoin();
@@ -1873,7 +1878,7 @@ function toId() {
 				} else {
 					this.sideRoomList.splice(index, 1);
 					this.sideRoomList.splice(newIndex, 0, room);
-					//this.topbar.updateTabbar();
+					this.topbar.updateTabbar();
 				}
 				room.focusText();
 				if (room.type === 'chat') this.updateAutojoin();

@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 0;
+  }
+
+body {
+    background: #344b6c url('../fx/modclient-bg-xerneas.png') no-repeat left center fixed;
+    -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.userbar {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	font-weight: bold;
+}
+
+.menugroup {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 49%;
+    left: 50%;
+	display: block;
+	padding: 10px 10px;
+	margin: 0 auto 0px auto;
+	max-width: 500px;
+	border-radius: 20px;
+	background: rgba(239, 239, 239, 0.767);
+    color: black;
+	text-shadow: 0 1px 0 black;
+	text-align: center;
+    visibility: hidden;
+
+}
+
+#black-curtain {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    
+}
+
+.mainmenufooter {
+	position: absolute;
+	bottom: 15px;
+	left: 20px;
+	color: #BBBBBB;
+	
+}
+
+button {
+    color: black;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 0;
+    
+}
+
+.buttonbar {
+  position: absolute;
+  z-index: 1;
+}
+
+.battleform-label, .select {
+    visibility: hidden;
+    max-height: 0px;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.big {
+    background-color: linear-gradient(to bottom,  hsl(182.04545454545456,52.380952380952394%,72%),  hsl(182.04545454545456,52.380952380952394%,52%));
+}
+
+/*
+** Checkout animation source: https://codepen.io/raubaca/pen/obaZmG, THANKS!
+*/
+
+  #center-on-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+  }
+
+  #pokeball {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border: 10px solid #000;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: inset -10px 10px 0 10px #ccc;
+    animation: fall .25s ease-in-out,
+    shake 1.25s cubic-bezier(.36,.07,.19,.97) infinite;
+  }
+  #pokeball::before,
+  #pokeball::after {
+    content:"";
+    position: absolute;
+  }
+  #pokeball::before {
+    background: red;
+    width: 100%;
+    height: 50%;
+  }
+  #pokeball::after {
+    top: calc(50% - 10px);
+    width: 100%;
+    height: 20px;
+    background: #000;
+  }
+  #pokeball_button {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 60px;
+    background: #7f8c8d;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 10px black;
+    animation: blink .5s alternate infinite;
+  }
+  /* Animation */
+  @keyframes blink {
+    from { background: #eee;}
+    to { background: #e74c3c; }
+  }
+  @keyframes shake {
+    0 { transform: translate(0, 0) rotate(0); }
+    20% { transform: translate(-10px, 0) rotate(-20deg); }
+    30% { transform: translate(10px, 0) rotate(20deg); }
+    50% { transform: translate(-10px, 0) rotate(-10deg); }
+    60% { transform: translate(10px, 0) rotate(10deg); }
+    100% { transform: translate(0, 0) rotate(0); }
+  }
+  @keyframes fall {
+    0% { top: -200px }
+    60% { top: 0 }
+    80% { top: -20px }
+    100% { top: 0 }
+  }

@@ -40,18 +40,19 @@
 				buf += '<p>(We\'ll be back up in a few hours.)</p>';
 				buf += '</div>';
 			} else {
-				buf += '<div class="menugroup"><form class="battleform" data-search="1">';
-				buf += '<p><label class="label">Format:</label>' + this.renderFormats() + '</p>';
-				buf += '<p><label class="label">Team:</label>' + this.renderTeams() + '</p>';
-				buf += '<p><label class="checkbox"><input type="checkbox" name="private" ' + (Storage.prefs('disallowspectators') ? 'checked' : '') + ' /> <abbr title="You can still invite spectators by giving them the URL or using the /invite command">Don\'t allow spectators</abbr></label></p>';
-				buf += '<p><button class="button mainmenu1 big" name="search"><strong>Battle!</strong><br /><small>Find a random opponent</small></button></p></form></div>';
+				buf+='<form class="battleform" data-search="1">'
+				buf += '<p><label class="label battleform-label">Format:</label>' + this.renderFormats() + '</p>';
+				buf += '<p><label class="label battleform-label">Team:</label>' + this.renderTeams() + '</p>';
+				buf += '<div class="menugroup">';
+				buf += '<p><button class="button mainmenu1 big" name="search"><strong>Battle!</strong><br /><small>Find a random opponent</small></button></p> or';
+				buf += '<p><button class="button mainmenu5 onlineonly disabled" name="finduser">Battle a friend!</button></p>';
+				buf += '<p><label class="checkbox"><input type="checkbox" name="private" ' + (Storage.prefs('disallowspectators') ? 'checked' : '') + ' /> <abbr title="You can still invite spectators by giving them the URL or using the /invite command">Don\'t allow spectators</abbr></label></p></form></div>';
 			}
+			
+			//buf += '<div class="menugroup"><p><button class="button mainmenu2" name="joinRoom" value="teambuilder">Teambuilder</button></p>';
+			//buf += '<p><button class="button mainmenu3" name="joinRoom" value="ladder">Ladder</button></p></div>';
 
-			buf += '<div class="menugroup"><p><button class="button mainmenu2" name="joinRoom" value="teambuilder">Teambuilder</button></p>';
-			buf += '<p><button class="button mainmenu3" name="joinRoom" value="ladder">Ladder</button></p></div>';
-
-			buf += '<div class="menugroup"><p><button class="button mainmenu4 onlineonly disabled" name="joinRoom" value="battles">Watch a battle</button></p>';
-			buf += '<p><button class="button mainmenu5 onlineonly disabled" name="finduser">Find a user</button></p></div>';
+			//buf += '<div class="menugroup"><p><button class="button mainmenu4 onlineonly disabled" name="joinRoom" value="battles">Watch a battle</button></p>';
 
 			this.$('.mainmenu').html(buf);
 
