@@ -23,5 +23,12 @@ pokeball_button.addEventListener('click',() => {
     document.getElementById("center-on-page").style.visibility = "hidden"
     document.getElementsByClassName("menugroup")[0].style.visibility = "visible"
     document.getElementsByClassName("menugroup")[0].style.zIndex = "1"
-} , false)
 
+    black.addEventListener('click', () => {
+        document.getElementById("center-on-page").style.visibility = "visible"
+        document.getElementsByClassName("menugroup")[0].style.visibility = "hidden"
+        document.getElementsByClassName("menugroup")[0].style.zIndex = "0" 
+        black.style.visibility = "hidden"
+    }, false)
+
+} , false)

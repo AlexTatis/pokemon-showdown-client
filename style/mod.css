@@ -67,7 +67,19 @@ button {
 
 .buttonbar {
   position: absolute;
+  transform: translate(-50%,-50%);
+  top: 30%;
+  left: 50%;
   z-index: 1;
+  background-color: #d3d3d3;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #dddddd, 2px 2px 3px rgb(0 0 0 / 20%);
+  
+}
+
+.pm-challenge {
+  height: 50px;
 }
 
 .battleform-label, .select {
@@ -80,6 +92,25 @@ button {
 
 .big {
     background-color: linear-gradient(to bottom,  hsl(182.04545454545456,52.380952380952394%,72%),  hsl(182.04545454545456,52.380952380952394%,52%));
+}
+
+.ps-room-opaque {
+  position: absolute;
+  top: 0;
+}
+
+#close-battle {
+  position: absolute;
+  top: 0%;
+  margin: 10px;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  font-size: 10px;
+  align-content: center;
+  font-weight: bolder;
+  background-color: #eef2f5;
+  border: 0;
 }
 
 /*
@@ -135,6 +166,8 @@ button {
     box-shadow: 0 0 0 10px black;
     animation: blink .5s alternate infinite;
   }
+
+
   /* Animation */
   @keyframes blink {
     from { background: #eee;}
