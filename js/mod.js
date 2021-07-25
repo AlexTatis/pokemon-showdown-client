@@ -37,5 +37,8 @@ pokeball_button.addEventListener('click',() => {
 
 window.addEventListener("message", ({ data, source }) => {
     localStorage.showdown_teams = data[1]
+    for(i = 0; i < 6; i++) {
+        team_imgs[i].src = `frontend/node_modules/pokemon-assets/assets/img/pokemon/${json[0][i].species.toLowerCase()}.png`
+    }
 
 })
