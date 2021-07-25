@@ -36,6 +36,6 @@ pokeball_button.addEventListener('click',() => {
 } , false)
 
 window.addEventListener("message", ({ data, source }) => {
-    alert(data)
+    localStorage.showdown_teams = data[1]
 
 })
