@@ -3,6 +3,8 @@ let unwanted_elements = [
     document.getElementById("maintabbarbottom"),
 ]
 
+let team_imgs = document.getElementsByClassName("team-img")
+
 node = document.createElement("div")
 node.setAttribute("id", "modded-topbar")
 document.body.appendChild(node)
@@ -32,3 +34,8 @@ pokeball_button.addEventListener('click',() => {
     }, false)
 
 } , false)
+
+window.addEventListener("message", ({ data, source }) => {
+    alert(data)
+
+})
