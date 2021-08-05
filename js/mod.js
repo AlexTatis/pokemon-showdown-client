@@ -1,9 +1,10 @@
-let unwanted_elements = [
+unwanted_elements = [
     document.getElementById("header"),
     document.getElementById("maintabbarbottom"),
 ]
 
-let team_imgs = document.getElementsByClassName("team-img")
+team_imgs = document.getElementsByClassName("team-img")
+team_species = []
 
 node = document.createElement("div")
 node.setAttribute("id", "modded-topbar")
@@ -39,6 +40,15 @@ window.addEventListener("message", ({ data, source }) => {
     localStorage.showdown_teams = data[1]
     for(i = 0; i < 6; i++) {
         team_imgs[i].src = `../node_modules/pokemon-assets/assets/img/pokemon/${data[0][i].species.toLowerCase()}.png`
+        team_species.push(data[0][i].species.toLowerCase())
     }
 
+    localStorage.species = team_species
+
 })
+
+
+for(i = 0; i < 6; i++) {
+    team_imgs[i].src = `../node_modules/pokemon-assets/assets/img/pokemon/${localStorage.species.split(",")[i].toLowerCase()}.png`
+       
+}

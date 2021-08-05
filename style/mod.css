@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 *, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 0;
   }
 
 body {
-    background: #344b6c url('../fx/modclient-bg-xerneas.png') no-repeat left center fixed;
-    -webkit-background-size: cover;
+  background: #344b6c url('../fx/modclient-bg-xerneas.png') no-repeat left center fixed;
+  -webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
@@ -23,17 +23,17 @@ body {
 }
 
 .menugroup {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 49%;
-    left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 49%;
+  left: 50%;
 	display: block;
 	padding: 10px 10px;
 	margin: 0 auto 0px auto;
 	max-width: 500px;
 	border-radius: 20px;
 	background: rgba(239, 239, 239, 0.767);
-    color: black;
+  color: black;
 	text-shadow: 0 1px 0 black;
 	text-align: center;
     visibility: hidden;
@@ -41,11 +41,11 @@ body {
 }
 
 #black-curtain {
-    top: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,.5);
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
     
 }
 
@@ -58,23 +58,23 @@ body {
 }
 
 button {
-    color: black;
-    padding: 10px 10px;
-    border-radius: 10px;
-    border: 0;
+  color: black;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: 0;
     
 }
 
 .buttonbar {
   position: absolute;
   transform: translate(-50%,-50%);
-  top: 30%;
   left: 50%;
   z-index: 1;
   background-color: #d3d3d3;
   padding: 10px;
   border-radius: 8px;
   box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #dddddd, 2px 2px 3px rgb(0 0 0 / 20%);
+  width: auto;
   
 }
 
@@ -83,15 +83,15 @@ button {
 }
 
 .battleform-label, .select {
-    visibility: hidden;
-    max-height: 0px;
-    margin: 0;
-    padding: 0;
+  visibility: hidden;
+  max-height: 0px;
+  margin: 0;
+  padding: 0;
     
 }
 
 .big {
-    background-color: linear-gradient(to bottom,  hsl(182.04545454545456,52.380952380952394%,72%),  hsl(182.04545454545456,52.380952380952394%,52%));
+  background-color: linear-gradient(to bottom,  hsl(182.04545454545456,52.380952380952394%,72%),  hsl(182.04545454545456,52.380952380952394%,52%));
 }
 
 .ps-room-opaque {
@@ -111,6 +111,72 @@ button {
   font-weight: bolder;
   background-color: #eef2f5;
   border: 0;
+}
+
+.team-img {
+  
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  max-height: 125px;
+  height: 100%;
+  object-fit:contain;
+  display: inline;
+  vertical-align: middle;
+  animation: wobble .5s alternate infinite;
+}
+
+#team-img-box {
+  position: absolute;
+  background-color: #eef2f5;
+  height: 200px;
+  width: 52.5%;
+  transform: translate(-50%, -50%);
+  left: 50%;  
+  z-index: 0;
+}
+
+#team-box-left-line {
+  position: absolute;
+  top: 0%;
+  transform: translate(-50%, -50%);
+  transform: skew(20deg);
+  width: 50px;
+  height: 100px;
+  left: 22.5%;
+  background-color: #aaadaf;
+
+}
+
+#team-box-right-line {
+  position: absolute;
+  top: 0%;
+  transform: translate(-50%, -50%);
+  transform: skew(340deg);
+  width: 50px;
+  height: 100px;
+  left: 75%;
+  background-color: #aaadaf;
+
+}
+
+#team-img-container {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 200px;
+  width: 52.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+@keyframes wobble {
+  0% {margin-top: 15px;}
+  100% {margin-top: 20px;}
 }
 
 /*

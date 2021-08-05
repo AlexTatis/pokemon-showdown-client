@@ -983,8 +983,8 @@
 			if (!noChoice) {
 				this.curFormat = formatid;
 				if (!this.curFormat) {
-					if (BattleFormats['gen8randombattle']) {
-						this.curFormat = 'gen8randombattle';
+					if (BattleFormats['gen8nationaldexag']) {
+						this.curFormat = 'gen8nationaldexag';
 					} else for (var i in BattleFormats) {
 						if (!BattleFormats[i].searchShow || !BattleFormats[i].challengeShow) continue;
 						this.curFormat = i;
@@ -1037,7 +1037,7 @@
 			} else {
 				teamIndex = +teamIndex;
 			}
-			return '<button class="select teamselect" name="team" value="' + (teamIndex < 0 ? '' : teamIndex) + '">' + TeamPopup.renderTeam(teamIndex) + '</button>';
+			return '<button class="select teamselect" name="team" value="' + "0" + '">' + TeamPopup.renderTeam(teamIndex) + '</button>';
 		},
 
 		// buttons

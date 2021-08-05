@@ -789,6 +789,9 @@ function toId() {
 			this.socket.onmessage = function (msg) {
 				if (window.console && console.log) {
 					console.log('<< ' + msg.data);
+					if(msg.data.indexOf("|popup|") == 0) {
+						alert(msg.data.substr(7, msg.data.length - 7))
+					}
 				}
 				self.receive(msg.data);
 			};
